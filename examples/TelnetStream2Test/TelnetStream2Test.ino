@@ -25,7 +25,7 @@ void loop() {
     case 'R':
     TelnetStream2.stop();
     delay(100);
-    ESP.reset();
+    ESP.restart();
       break;
     case 'C':
       TelnetStream2.println("bye bye");

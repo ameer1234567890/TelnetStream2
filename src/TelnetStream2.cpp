@@ -1,18 +1,18 @@
-#include "TelnetStream.h"
+#include "TelnetStream2.h"
 
-TelnetStreamClass::TelnetStreamClass(uint16_t port) :server(port) {
+TelnetStream2Class::TelnetStream2Class(uint16_t port) :server(port) {
 }
 
-void TelnetStreamClass::begin() {
+void TelnetStream2Class::begin() {
   server.begin();
   client = server.available();
 }
 
-void TelnetStreamClass::stop() {
+void TelnetStream2Class::stop() {
   client.stop();
 }
 
-boolean TelnetStreamClass::disconnected() {
+boolean TelnetStream2Class::disconnected() {
 #ifdef ESP32
   if (!server)
     return true;
@@ -32,34 +32,34 @@ boolean TelnetStreamClass::disconnected() {
   return true;
 }
 
-int TelnetStreamClass::read() {
+int TelnetStream2Class::read() {
   if (disconnected())
     return -1;
   return client.read();
 }
 
-int TelnetStreamClass::available() {
+int TelnetStream2Class::available() {
   if (disconnected())
     return 0;
   return client.available();
 }
 
-int TelnetStreamClass::peek() {
+int TelnetStream2Class::peek() {
   if (disconnected())
     return -1;
   return client.peek();
 }
 
-size_t TelnetStreamClass::write(uint8_t val) {
+size_t TelnetStream2Class::write(uint8_t val) {
   if (disconnected())
     return 1;
   return client.write(val);
 }
 
-void TelnetStreamClass::flush() {
+void TelnetStream2Class::flush() {
   if (disconnected())
     return;
   client.flush();
 }
 
-TelnetStreamClass TelnetStream(23);
+TelnetStream2Class TelnetStream2(23);

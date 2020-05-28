@@ -1,6 +1,6 @@
 /*
 Copyright (C) 2017 Juraj Andrassy
-repository https://github.com/jandrassy
+Copyright (C) 2020 Ameer Dawood
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
@@ -16,8 +16,8 @@ repository https://github.com/jandrassy
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef _TELNETSTREAM_H_
-#define _TELNETSTREAM_H_
+#ifndef _TELNETSTREAM2_H_
+#define _TELNETSTREAM2_H_
 
 #ifdef ESP8266
 #include <ESP8266WiFi.h>
@@ -25,7 +25,7 @@ repository https://github.com/jandrassy
 #include <WiFi.h>
 #endif
 
-class TelnetStreamClass : public Stream {
+class TelnetStream2Class : public Stream {
 
 private:
   WiFiServer server;
@@ -35,7 +35,7 @@ private:
 
 public:
 
-  TelnetStreamClass(uint16_t port);
+  TelnetStream2Class(uint16_t port);
 
   void begin();
   void stop();
@@ -52,6 +52,6 @@ public:
 
 };
 
-extern TelnetStreamClass TelnetStream;
+extern TelnetStream2Class TelnetStream2;
 
 #endif
